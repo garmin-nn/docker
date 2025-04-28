@@ -1,0 +1,15 @@
+---
+version: "2"
+services:
+  ac2mqtt:
+    image: broadlinkac/broadlink_ac_mqtt
+    container_name: ac2mqtt
+    hostname: ac2mqtt
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - ${CONFIG}/ac2mqtt:/config
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
